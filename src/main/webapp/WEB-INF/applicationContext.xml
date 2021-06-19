@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans	
+						http://www.springframework.org/schema/beans/spring-beans.xsd 
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Activamo las anotaciones -->
+	<context:annotation-config></context:annotation-config>
+
+	<!-- indicamos el paquete en el que tiene que buscar las anotaciones de 
+		los beans -->
+	<context:component-scan base-package="com.vera"></context:component-scan>
+
+	<!-- así se crearia en el xml -->
+	<!-- <bean id="SpringService" class="com.vera.projectspringweb.services.impl.SpringServiceImpl"></bean> -->
+
+	<bean id="properties"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+
+	</bean>
+
+</beans>
